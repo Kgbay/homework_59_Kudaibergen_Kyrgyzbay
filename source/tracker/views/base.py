@@ -1,15 +1,15 @@
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import ListView, RedirectView
 
 from tracker.models import Task
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
     template_name = 'index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['tasks'] = Task.objects.exclude(is_deleted=True)
-        return context
+    model = Task
+    context_object_name = 'tasks'
+    ordering = ('-created_at')
+    paginate_by = 3
+    paginate_orphans = 1
 
 class IndexRedirectView(RedirectView):
     pattern_name = 'index'
