@@ -8,7 +8,7 @@ class IndexView(ListView):
     model = Task
     context_object_name = 'tasks'
     ordering = ('-created_at')
-    paginate_by = 3
+    paginate_by = 5
     paginate_orphans = 1
 
 class IndexRedirectView(RedirectView):
