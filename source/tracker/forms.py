@@ -16,7 +16,6 @@ TYPE_CHOICES = (
 )
 
 
-
 class TaskForm(forms.ModelForm):
     class Meta:
 
@@ -42,3 +41,8 @@ class TaskForm(forms.ModelForm):
         if len(cleaned_data['summary']) < 2 or len(cleaned_data['description']) < 2:
             raise ValidationError("Длина поле должна быть больше двух символов")
         return cleaned_data
+
+
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=20, required=False)
+    search.widget.attrs['class'] = 'form-search'

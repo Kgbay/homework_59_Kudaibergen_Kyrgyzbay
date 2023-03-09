@@ -25,6 +25,12 @@ class Task(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Тип'
     )
+    project_id = models.ForeignKey(
+        'tracker.Project',
+        related_name='projects',
+        on_delete=models.CASCADE,
+        verbose_name='Проект'
+    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Дата и время создание"

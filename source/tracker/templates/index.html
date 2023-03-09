@@ -2,6 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block content %}
     <div class="container">
+        {% include 'partial/search.html' %}
         <h1>Список задач</h1>
         {% for task in tasks %}
             <a href="{% url 'task_view' task.pk %}">
@@ -46,6 +47,8 @@
                       </ul>
                 </div>
         </div>
-    {% include 'partial/pagination.html' %}
+        {% if is_paginated %}
+            {% include 'partial/pagination.html' %}
+        {% endif %}
     </div>
 {% endblock content %}
