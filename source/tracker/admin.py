@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Task, Status
-from .models import Type
+from .models import Task, Status, Project, Type
 
 
 # Register your models here.
@@ -16,6 +15,11 @@ class TaskAdmin(admin.ModelAdmin):
 
 admin.site.register(Task, TaskAdmin)
 
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+
+
+admin.site.register(Project, ProjectAdmin)
 
 class TypeAdmin(admin.ModelAdmin):
     list_display = ('type_name', 'created_at')
