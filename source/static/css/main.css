@@ -153,3 +153,7 @@ footer {
     text-align: center;
     border: solid 1px gray;
 }
+.form-search {
+    border-color: green !important;
+    color: red !important;
+}
