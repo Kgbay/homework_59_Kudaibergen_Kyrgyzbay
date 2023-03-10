@@ -30,7 +30,6 @@ class Task(models.Model):
         related_name='projects',
         on_delete=models.CASCADE,
         verbose_name='Проект',
-        default=1
     )
     created_at = models.DateTimeField(
         auto_now_add=True,

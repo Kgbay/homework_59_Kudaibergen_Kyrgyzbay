@@ -6,10 +6,10 @@ from .models import Task, Status, Project, Type
 # Register your models here.
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('summary', 'description', 'created_at', 'status', 'type', 'is_deleted')
+    list_display = ('summary', 'description', 'created_at', 'status', 'type', 'is_deleted', 'project')
     list_filter = ('id', 'summary', 'created_at')
     search_fields = ('summary', 'description', 'created_at', 'updated_at')
-    fields = ('summary', 'description', 'status', 'type', 'is_deleted')
+    fields = ('summary', 'description', 'status', 'type', 'is_deleted', 'project')
     readonly_fields = ('id', 'updated_at')
 
 
